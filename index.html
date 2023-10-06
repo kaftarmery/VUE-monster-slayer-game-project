@@ -25,18 +25,21 @@
       </section>
       <section id="player" class="container">
         <h2>Your Health: {{playerHealth}}</h2>
+
         <div class="healthbar">
           <div class="healthbar__value"></div>
         </div>
       </section>
       <section id="controls">
-        <button @click="attackMonster">ATTACK</button>
-
+        <!-- <button @click="attackMonster">ATTACK</button>
         <button @click="specialAttack">SPECIAL ATTACK</button>
-
         <button @click="healPlayer">HEAL</button>
+        <button @click="surrender">SURRENDER</button> -->
 
-        <button @click="surrender">SURRENDER</button>
+        <img src="/images/attack.png" alt="" />
+        <img src="/images/super-attack.png" alt="" />
+        <img src="/images/health.png" alt="" />
+        <img src="/images/surrender.png" alt="" />
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>

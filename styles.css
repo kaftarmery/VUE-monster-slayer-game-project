@@ -12,6 +12,7 @@ body {
   background-image: url(/images/night.jpg);
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
@@ -50,7 +51,8 @@ section {
   margin-top: 5.2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 12px;
-  background-color: rgb(227, 214, 190);
+  background-color: #dcc7af;
+  border: 5px solid #b47c57;
 }
 
 #monster h2,
@@ -61,15 +63,20 @@ section {
 #controls {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin-top: 3.2rem;
+}
+
+img {
+  width: 20%;
 }
 
 button {
   font: inherit;
   border: 1px solid #88005b;
-  background-color: #88005b;
+  background-color: #4f2341;
   color: white;
   padding: 1rem 2rem;
   border-radius: 12px;
