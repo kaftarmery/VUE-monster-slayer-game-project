@@ -36,10 +36,11 @@
         <button @click="healPlayer">HEAL</button>
         <button @click="surrender">SURRENDER</button> -->
 
-        <img src="/images/attack.png" alt="" />
-        <img src="/images/super-attack.png" alt="" />
-        <img src="/images/health.png" alt="" />
-        <img src="/images/surrender.png" alt="" />
+        <img @click="attackMonster" src="/images/attack.png" alt="" />
+        <img @click="specialAttack" src="/images/super-attack.png" alt="" />
+        <img @click="healPlayer" src="/images/health.png" alt="" />
+
+        <img @click="surrender" src="/images/surrender.png" alt="" />
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
