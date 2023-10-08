@@ -13,9 +13,6 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <!-- <header>
-      <h1>Monster Slayer</h1>
-    </header> -->
     <div id="game">
       <section id="monster" class="container">
         <h2>Monster Health: {{monsterHealth}}</h2>
@@ -30,18 +27,30 @@
           <div class="healthbar__value"></div>
         </div>
       </section>
+
+      <!-- ACTION BUTTONS -->
       <section id="controls">
-        <!-- <button @click="attackMonster">ATTACK</button>
-        <button @click="specialAttack">SPECIAL ATTACK</button>
-        <button @click="healPlayer">HEAL</button>
-        <button @click="surrender">SURRENDER</button> -->
+        <div class="item">
+          <img @click="attackMonster" src="/images/attack-2.png" alt="" />
+          <p class="content">HIT</p>
+        </div>
 
-        <img @click="attackMonster" src="/images/attack.png" alt="" />
-        <img @click="specialAttack" src="/images/super-attack.png" alt="" />
-        <img @click="healPlayer" src="/images/health.png" alt="" />
+        <div class="item">
+          <img @click="specialAttack" src="/images/super-attack-2.png" alt="" />
+          <p class="content">ATTACK</p>
+        </div>
 
-        <img @click="surrender" src="/images/surrender.png" alt="" />
+        <div class="item">
+          <img @click="healPlayer" src="/images/health-2.png" alt="" />
+          <p class="content">HEAL</p>
+        </div>
+
+        <div class="item">
+          <img @click="surrender" src="/images/surrender-2.png" alt="" />
+          <p class="content">SURRENDER</p>
+        </div>
       </section>
+
       <section id="log" class="container">
         <h2>Battle Log</h2>
         <ul></ul>
