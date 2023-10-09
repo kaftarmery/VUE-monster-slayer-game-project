@@ -24,6 +24,10 @@ section {
   margin: auto;
 }
 
+.greenText {
+  color: #ffffff;
+}
+
 .healthbar {
   width: 100%;
   height: 40px;
@@ -74,10 +78,6 @@ section {
   background-color: red;
 }
 
-/* .item img {
-  width: 20%;
-  cursor: pointer;
-} */
 p {
   color: white;
 }
@@ -92,9 +92,6 @@ img {
   width: 100px;
   height: 100px;
   cursor: pointer;
-}
-.button:disabled {
-  cursor: not-allowed;
 }
 
 .caption {
