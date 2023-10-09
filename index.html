@@ -12,24 +12,23 @@
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
   </head>
+
   <body>
     <div id="game">
       <section id="monster" class="container">
         <h2>Monster Health: {{monsterHealth}}</h2>
         <div class="healthbar">
-          <div
-            class="healthbar__value"
-            :style="{width: monsterHealth + '%'}"
-          ></div>
+          <div class="healthbar__value" :style="monsterBarStyles"></div>
         </div>
       </section>
+
       <section id="player" class="container">
         <h2>Your Health: {{playerHealth}}</h2>
-
         <div class="healthbar">
           <div
             class="healthbar__value"
-            :style="{width: playerHealth + '%'}"
+            :style="playerBarStyles"
+            :style="{ backgroundColor: lowHealthPlayer}"
           ></div>
         </div>
       </section>

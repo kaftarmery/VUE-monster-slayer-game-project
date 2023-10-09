@@ -1,22 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 * {
   box-sizing: border-box;
 }
 
+body,
 html {
-  font-family: "Press Start 2P";
-}
-
-body {
   margin: 0;
-  background-image: url(/images/background.webp);
-  background-size: auto 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-h2 {
+  height: 100%;
+  font-family: "Press Start 2P";
   color: white;
+
+  background: url(/images/dark-bg.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 section {
@@ -94,40 +93,12 @@ img {
   height: 100px;
   cursor: pointer;
 }
+.button:disabled {
+  cursor: not-allowed;
+}
+
 .caption {
   display: block;
-}
-
-button {
-  font: inherit;
-  border: 1px solid #88005b;
-  background-color: #4f2341;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  margin: 1rem;
-  width: 12rem;
-  cursor: pointer;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
-}
-
-button:focus {
-  outline: none;
-}
-
-button:hover,
-button:active {
-  background-color: #af0a78;
-  border-color: #af0a78;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
-}
-
-button:disabled {
-  background-color: #ccc;
-  border-color: #ccc;
-  box-shadow: none;
-  color: #3f3f3f;
-  cursor: not-allowed;
 }
 
 #log ul {

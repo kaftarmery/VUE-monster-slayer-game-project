@@ -8,36 +8,66 @@ const app = Vue.createApp({
     return {
       monsterHealth: 100,
       playerHealth: 100,
+      attackRound: 0,
+      healthRound: 0,
+      round: 0,
     };
+  },
+
+  computed: {
+    monsterBarStyles() {
+      return { width: this.monsterHealth + "%" };
+    },
+
+    playerBarStyles() {
+      return { width: this.playerHealth + "%" };
+    },
+
+    lowHealthPlayer() {
+      return this.playerHealth < 60 ? "red" : "green";
+    },
   },
 
   methods: {
     attackMonster() {
-      const attackValue = getRandomValue(5, 12);
+      this.attackRound++;
+      this.healthRound++;
+      this.round++;
+      const attackValue = getRandomValue(8, 15);
       this.monsterHealth -= attackValue;
 
       // directly call the next method (for the player attack by the monster)
       this.attackPlayer();
     },
+
     attackPlayer() {
-      const attackValue = getRandomValue(8, 15);
+      const attackValue = getRandomValue(5, 12);
       this.playerHealth -= attackValue;
     },
 
     healPlayer() {
-      const counter = 0;
-      this.playerHealth += getRandomValue(3, 10);
-      counter = (counter + 1) % 60;
+      if (this.healthRound >= 4) {
+        this.playerHealth += getRandomValue(3, 10);
+      }
+      if (this.healthRound === 4 || this.healthRound >= 4) {
+        this.healthRound = 0;
+      }
     },
 
     specialAttack() {
-      const attackValue = getRandomValue(8, 15);
-      this.monsterHealth -= attackValue;
-    },
+      if (this.attackRound >= 3) {
+        const attackValue = getRandomValue(8, 15);
+        this.monsterHealth -= attackValue;
+        this.attackPlayer();
 
-    surrender() {
-      this.playerHealth = 0;
+        if (this.attackRound === 3 || this.attackRound >= 4) {
+          this.attackRound = 0;
+        }
+      }
     },
+  },
+  surrender() {
+    this.playerHealth = 0;
   },
 });
 
