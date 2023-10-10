@@ -16,25 +16,32 @@
   <body>
     <div id="game">
       <section id="monster" class="container">
-        <h2>Monster Health: {{monsterHealth}} + {{attackRound}}</h2>
+        <h2>Monster Health</h2>
         <div class="healthbar">
           <div class="healthbar__value" :style="monsterBarStyles"></div>
         </div>
       </section>
 
       <section id="player" class="container">
-        <h2>Your Health: {{playerHealth}}</h2>
+        <h2>Your Health</h2>
 
         <div class="healthbar">
-          <div
-            class="healthbar__value healthbar__shake"
-            :style="playerBarStyles, makeRedPlayer"
-          ></div>
+          <div class="healthbar__value" :style="playerBarStyles"></div>
         </div>
       </section>
 
+      <!--  -->
+      <section class="container" v-if="winner">
+        <h2>Game over!</h2>
+        <h3 v-if="winner === 'player'">You won!</h3>
+        <h3 v-if="winner === 'monster'">You lost!</h3>
+        <h3 v-if="winner === 'draw'">It's a draw!!</h3>
+
+        <button @click="startNewGame">Start a new game</button>
+      </section>
+
       <!-- ACTION BUTTONS -->
-      <section id="controls">
+      <section v-if="showButtons" id="controls">
         <div class="item">
           <img @click="attackMonster" src="/images/attack-2.png" alt="" />
           <p class="content">HIT</p>
@@ -48,12 +55,12 @@
             alt=""
           />
 
-          <p :style="makeGreen" class="content greenText">ATTACK</p>
+          <p :style="makeAttackGreen" class="content greenText">ATTACK</p>
         </div>
 
         <div class="item">
           <img @click="healPlayer" src="/images/health-2.png" alt="" />
-          <p class="content">HEAL</p>
+          <p :style="makeHealRed" class="content">HEAL</p>
         </div>
 
         <div class="item">
