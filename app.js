@@ -25,7 +25,6 @@ const app = Vue.createApp({
   computed: {
     monsterBarStyles() {
       return { width: this.monsterHealth + "%" };
-      }
     },
     makeMonsterRed() {
       if (this.monsterHealth < 60) {
@@ -120,8 +119,11 @@ const app = Vue.createApp({
       this.playerHealth = 0;
     },
     startNewGame() {
-      (this.playerHealth = 100), (this.monsterHealth = 100);
-      (this.winner = null), (this.attackRound = 0), (this.showButtons = true);
+      this.playerHealth = 100;
+      this.monsterHealth = 100;
+      this.winner = null;
+      this.attackRound = 0;
+      this.showButtons = true;
     },
   },
 });
