@@ -37,11 +37,13 @@
         <h3 v-if="winner === 'monster'">You lost!</h3>
         <h3 v-if="winner === 'draw'">It's a draw!!</h3>
 
-        <button @click="startNewGame">Start a new game</button>
+        <button class="btn" @click="startNewGame">Start a new game</button>
       </section>
 
       <!-- ACTION BUTTONS -->
-      <section v-if="showButtons" id="controls">
+      <!-- v-else stands as a '!winner'
+      hiding the buttons if 'winner' from the above v-if is falsy -->
+      <section v-else id="controls">
         <div class="item">
           <img @click="attackMonster" src="/images/attack-2.png" alt="" />
           <p class="content">HIT</p>

@@ -14,7 +14,6 @@ const app = Vue.createApp({
 
       // if it's not null it either holds a string of draw, player or monster
       winner: null,
-      showButtons: true,
 
       green: "#0b8955",
       red: "#FF0000",
@@ -24,17 +23,20 @@ const app = Vue.createApp({
 
   computed: {
     monsterBarStyles() {
-      return { width: this.monsterHealth + "%" };
-    },
-    makeMonsterRed() {
-      if (this.monsterHealth < 60) {
-        return { background: this.red };
+      if (this.monsterHealth < 0) {
+        return { width: "0%" };
       }
+      return { width: this.monsterHealth + "%" };
     },
 
     playerBarStyles() {
+      if (this.playerHealth < 0) {
+        return { width: "0%" };
+      }
+
       return { width: this.playerHealth + "%" };
     },
+
     makeAttackGreen() {
       if (this.attackRound >= 3) {
         return { color: this.green };
@@ -53,11 +55,9 @@ const app = Vue.createApp({
       if (value <= 0 && this.monsterHealth <= 0) {
         // it's a draw
         this.winner = "draw";
-        this.showButtons = null;
       } else if (value <= 0) {
         // player lost
         this.winner = "monster";
-        this.showButtons = null;
       }
     },
 
@@ -66,11 +66,9 @@ const app = Vue.createApp({
       if (value <= 0 && this.playerHealth <= 0) {
         // a draw
         this.winner = "draw";
-        this.showButtons = null;
       } else if (value <= 0) {
         // monster lost
         this.winner = "player";
-        this.showButtons = null;
       }
     },
   },
@@ -123,7 +121,6 @@ const app = Vue.createApp({
       this.monsterHealth = 100;
       this.winner = null;
       this.attackRound = 0;
-      this.showButtons = true;
     },
   },
 });
