@@ -14,10 +14,10 @@ const app = Vue.createApp({
 
       // if it's not null it either holds a string of draw, player or monster
       winner: null,
+      logMessages: [],
 
       green: "#0b8955",
       red: "#FF0000",
-      // white: "FFFFFF",
     };
   },
 
@@ -79,6 +79,7 @@ const app = Vue.createApp({
       this.attackRound++;
       const attackValue = getRandomValue(5, 12);
       this.monsterHealth -= attackValue;
+      this.addLogMessage("player", "hit", attackValue);
       // directly call the next method (for the player attack by the monster)
       this.attackPlayer();
     },
@@ -86,6 +87,8 @@ const app = Vue.createApp({
     attackPlayer() {
       const attackValue = getRandomValue(8, 16);
       this.playerHealth -= attackValue;
+
+      this.addLogMessage("monster", "hit", attackValue);
     },
 
     healPlayer() {
@@ -99,6 +102,7 @@ const app = Vue.createApp({
         this.playerHealth += healValue;
       }
       this.attackPlayer();
+      this.addLogMessage("player", "heal", playerHealth);
     },
 
     specialAttack() {
@@ -112,6 +116,7 @@ const app = Vue.createApp({
           this.attackRound = 0;
         }
       }
+      this.addLogMessage("player", "attack", attackValue);
     },
     surrender() {
       this.playerHealth = 0;
@@ -121,6 +126,20 @@ const app = Vue.createApp({
       this.monsterHealth = 100;
       this.winner = null;
       this.attackRound = 0;
+      this.logMessage = [];
+    },
+
+    // who won
+    // what happened
+    // how much damage was dealt
+    addLogMessage(who, what, value) {
+      // shit ads something at the end of the array
+      // unshift adds it to the beginning of the array, pushing the other elements down
+      this.logMessage.unshift({
+        actionBy: who,
+        actionType: what,
+        actionValue: value,
+      });
     },
   },
 });
