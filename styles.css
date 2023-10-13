@@ -19,8 +19,8 @@ html {
 }
 
 section {
-  width: 90%;
-  max-width: 40rem;
+  width: 100%;
+  max-width: 38rem;
   margin: auto;
 }
 
@@ -44,8 +44,8 @@ section {
 .container {
   text-align: center;
   padding: 2rem;
-  margin: 1rem auto;
-  margin-top: 5.2rem;
+  margin: 0.5rem auto;
+  margin-top: 4.2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 12px;
   background-color: #2b323a;
@@ -69,6 +69,7 @@ section {
 
 p {
   color: white;
+  font-size: 14px;
 }
 
 div.item {
@@ -91,7 +92,7 @@ button {
 
   background-color: #883edd;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Press Start 2P";
 
   color: #ffffff;

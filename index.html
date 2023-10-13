@@ -16,14 +16,14 @@
   <body>
     <div id="game">
       <section id="monster" class="container">
-        <h2>Monster Health</h2>
+        <h3>Monster Health</h3>
         <div class="healthbar">
           <div class="healthbar__value" :style="monsterBarStyles"></div>
         </div>
       </section>
 
       <section id="player" class="container">
-        <h2>Your Health</h2>
+        <h3>Your Health</h3>
 
         <div class="healthbar">
           <div class="healthbar__value" :style="playerBarStyles"></div>
@@ -71,7 +71,7 @@
       </section>
 
       <section id="log" class="container">
-        <h2>Battle Log</h2>
+        <h3>Battle Log</h3>
         <ul>
           <li v-for="logMessage in logMessages">
             <span
