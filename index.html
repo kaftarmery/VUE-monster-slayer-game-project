@@ -30,14 +30,13 @@
         </div>
       </section>
 
-      <!--  -->
       <section class="container" v-if="winner">
         <h2>Game over!</h2>
         <h3 v-if="winner === 'player'">You won!</h3>
         <h3 v-if="winner === 'monster'">You lost!</h3>
         <h3 v-if="winner === 'draw'">It's a draw!!</h3>
 
-        <button class="btn" @click="startNewGame">Start a new game</button>
+        <button class="button" @click="startNewGame">Start a new game</button>
       </section>
 
       <!-- ACTION BUTTONS -->

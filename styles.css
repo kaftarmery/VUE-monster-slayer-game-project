@@ -60,22 +60,10 @@ section {
 #controls {
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-top: 3.2rem;
-}
-
-.textSection {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
-  /* margin-top: 3.2rem; */
-  color: white;
-  width: 50%;
-  background-color: red;
 }
 
 p {
@@ -87,11 +75,51 @@ div.item {
   display: inline-block;
   text-align: center;
   width: 150px;
+  border: 1px solid transparent;
 }
 img {
   width: 100px;
   height: 100px;
   cursor: pointer;
+}
+
+button {
+  position: relative;
+
+  background-color: #883edd;
+  border: none;
+  font-size: 16px;
+  font-family: "Press Start 2P";
+
+  color: #ffffff;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+button:after {
+  content: "";
+  background: #ae68ff;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
 }
 
 .caption {
