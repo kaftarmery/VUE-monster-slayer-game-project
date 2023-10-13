@@ -9,8 +9,6 @@ const app = Vue.createApp({
       monsterHealth: 100,
       playerHealth: 100,
       attackRound: 0,
-      // general round that will be shown on screen
-      // round: 0,
 
       // if it's not null it either holds a string of draw, player or monster
       winner: null,
@@ -60,7 +58,6 @@ const app = Vue.createApp({
         this.winner = "monster";
       }
     },
-
     // monster lost or it's a draw
     monsterHealth(value) {
       if (value <= 0 && this.playerHealth <= 0) {
@@ -79,15 +76,14 @@ const app = Vue.createApp({
       this.attackRound++;
       const attackValue = getRandomValue(5, 12);
       this.monsterHealth -= attackValue;
+
       this.addLogMessage("player", "hit", attackValue);
-      // directly call the next method (for the player attack by the monster)
       this.attackPlayer();
     },
 
     attackPlayer() {
       const attackValue = getRandomValue(8, 16);
       this.playerHealth -= attackValue;
-
       this.addLogMessage("monster", "hit", attackValue);
     },
 
@@ -101,8 +97,10 @@ const app = Vue.createApp({
       } else {
         this.playerHealth += healValue;
       }
+      this.addLogMessage("player", "heal", healValue);
+
+      // when the player wants to heal, the monster automatically attacks back
       this.attackPlayer();
-      this.addLogMessage("player", "heal", playerHealth);
     },
 
     specialAttack() {
@@ -110,23 +108,25 @@ const app = Vue.createApp({
         const attackValue = getRandomValue(8, 18);
         this.monsterHealth -= attackValue;
         this.round++;
+        this.addLogMessage("player", "attack", attackValue);
+
         this.attackPlayer();
 
         if (this.attackRound === 3 || this.attackRound >= 4) {
           this.attackRound = 0;
         }
       }
-      this.addLogMessage("player", "attack", attackValue);
     },
     surrender() {
-      this.playerHealth = 0;
+      // this.playerHealth = 0;
+      this.winner = "Monster";
     },
     startNewGame() {
       this.playerHealth = 100;
       this.monsterHealth = 100;
       this.winner = null;
       this.attackRound = 0;
-      this.logMessage = [];
+      this.logMessages = [];
     },
 
     // who won
@@ -135,7 +135,7 @@ const app = Vue.createApp({
     addLogMessage(who, what, value) {
       // shit ads something at the end of the array
       // unshift adds it to the beginning of the array, pushing the other elements down
-      this.logMessage.unshift({
+      this.logMessages.unshift({
         actionBy: who,
         actionType: what,
         actionValue: value,
