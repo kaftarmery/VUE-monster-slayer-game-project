@@ -64,6 +64,7 @@ section {
   align-items: center;
   justify-content: space-between;
   margin-top: 3.2rem;
+  touch-action: manipulation;
 }
 
 p {
@@ -76,11 +77,13 @@ div.item {
   text-align: center;
   width: 150px;
   border: 1px solid transparent;
+  touch-action: manipulation;
 }
 img {
   width: 100px;
   height: 100px;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 button {
