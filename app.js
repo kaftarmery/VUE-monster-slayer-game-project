@@ -118,9 +118,9 @@ const app = Vue.createApp({
       }
     },
     surrender() {
-      // this.playerHealth = 0;
-      this.winner = "Monster";
+      this.playerHealth = 0;
     },
+
     startNewGame() {
       this.playerHealth = 100;
       this.monsterHealth = 100;
