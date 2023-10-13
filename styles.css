@@ -90,15 +90,15 @@ img {
 
 button {
   position: relative;
-
+  border-radius: 6px;
   background-color: #883edd;
   border: none;
   font-size: 14px;
   font-family: "Press Start 2P";
-
   color: #ffffff;
-  padding: 20px;
-  width: 200px;
+  padding: 15px;
+  margin: 10px;
+  width: 250px;
   text-align: center;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;

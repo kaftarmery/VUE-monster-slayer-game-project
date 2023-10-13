@@ -74,7 +74,7 @@ const app = Vue.createApp({
     attackMonster() {
       this.round++;
       this.attackRound++;
-      const attackValue = getRandomValue(5, 12);
+      const attackValue = getRandomValue(7, 12);
       this.monsterHealth -= attackValue;
 
       this.addLogMessage("player", "hit", attackValue);
@@ -82,14 +82,14 @@ const app = Vue.createApp({
     },
 
     attackPlayer() {
-      const attackValue = getRandomValue(8, 16);
+      const attackValue = getRandomValue(8, 14);
       this.playerHealth -= attackValue;
       this.addLogMessage("monster", "hit", attackValue);
     },
 
     healPlayer() {
       this.round++;
-      const healValue = getRandomValue(8, 20);
+      const healValue = getRandomValue(8, 18);
       // if the number of playerHealth + whatever healValue it got from the button is bigger than 100
       if (this.playerHealth + healValue > 100) {
         // keep playerHealth to 100 if it tries to go above
@@ -105,7 +105,7 @@ const app = Vue.createApp({
 
     specialAttack() {
       if (this.attackRound >= 3) {
-        const attackValue = getRandomValue(8, 18);
+        const attackValue = getRandomValue(9, 18);
         this.monsterHealth -= attackValue;
         this.round++;
         this.addLogMessage("player", "attack", attackValue);
